@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CubaProjectState">
+    <option name="hasState" value="true" />
+    <option name="cubaModelState">
+      <CubaModelState>
+        <option name="repositories">
+          <list>
+            <RepositoryModelState>
+              <option name="url" value="https://repo.cuba-platform.com/content/groups/work" />
+              <option name="user" value="cuba" />
+              <option name="pass" value="3r6+CXYTcUs=" />
+              <option name="stateVersion" value="2" />
+            </RepositoryModelState>
+          </list>
+        </option>
+        <option name="appComponents">
+          <list>
+            <DependencyModelState>
+              <option name="group" value="com.haulmont.cuba" />
+              <option name="name" value="cuba-global" />
+              <option name="version" value="6.10.7" />
+            </DependencyModelState>
+            <DependencyModelState>
+              <option name="group" value="com.company.platform.appointments" />
+              <option name="name" value="company-global" />
+              <option name="version" value="0.2-SNAPSHOT" />
+            </DependencyModelState>
+            <DependencyModelState>
+              <option name="group" value="com.company.platform.main" />
+              <option name="name" value="company-platform-global" />
+              <option name="version" value="0.2-SNAPSHOT" />
+            </DependencyModelState>
+          </list>
+        </option>
+        <option name="mavenLocal" value="true" />
+        <option name="artifactGroup" value="com.company.platform.projectmanagement" />
+        <option name="artifactVersion" value="0.2" />
+        <option name="artifactSnapshot" value="true" />
+        <option name="tomcatDir" value="E:\project\StudioProjects\cuba-example-application-components\project-management-app/build/tomcat" />
+        <option name="gradleVersion" value="4.3.1" />
+        <option name="oracleSystemCredentials">
+          <map>
+            <entry key="_MAIN_">
+              <value>
+                <OracleSystemCredentialsModelState>
+                  <option name="systemUser" value="system" />
+                  <option name="systemPassword" value="manager" />
+                </OracleSystemCredentialsModelState>
+              </value>
+            </entry>
+          </map>
+        </option>
+        <option name="gradlePluginJarPath" value="D:\ProgramData\.gradle\caches\modules-2\files-2.1\com.haulmont.gradle\cuba-plugin\6.10.7\8a81ba5b8a35778cb4e0194ff3a44d10df97f68b\cuba-plugin-6.10.7.jar" />
+        <option name="projectPath" value="E:\project\StudioProjects\cuba-example-application-components\project-management-app" />
+      </CubaModelState>
+    </option>
+    <option name="dbArtifacts">
+      <map>
+        <entry key="com.company.platform.appointments" value="D:\ProgramData\.m2\repository\com\company\platform\appointments\company-core\0.2-SNAPSHOT\company-core-0.2-SNAPSHOT-db.zip" />
+        <entry key="com.company.platform.main" value="D:\ProgramData\.m2\repository\com\company\platform\main\company-platform-core\0.2-SNAPSHOT\company-platform-core-0.2-SNAPSHOT-db.zip" />
+        <entry key="com.haulmont.cuba" value="D:\ProgramData\.gradle\caches\modules-2\files-2.1\com.haulmont.cuba\cuba-core\6.10.7\d524229f6b78f5cb704d9ac0d458094241c53d0b\cuba-core-6.10.7-db.zip" />
+      </map>
+    </option>
+    <option name="gradleFilesCRC" value="1245980503" />
+  </component>
+</project>
