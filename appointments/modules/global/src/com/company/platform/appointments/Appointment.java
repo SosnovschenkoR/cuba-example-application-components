@@ -2,7 +2,9 @@ package com.company.platform.appointments;
 
 import javax.persistence.Entity;
 import javax.persistence.Table;
+
 import com.haulmont.cuba.core.entity.FileDescriptor;
+
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Column;
@@ -11,13 +13,17 @@ import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+
 import com.haulmont.cuba.core.entity.StandardEntity;
 import com.haulmont.chile.core.annotations.NamePattern;
+
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
+
 import com.haulmont.chile.core.annotations.Composition;
 import com.haulmont.cuba.core.entity.annotation.OnDelete;
 import com.haulmont.cuba.core.global.DeletePolicy;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Lob;
 
@@ -39,8 +45,8 @@ public class Appointment extends StandardEntity {
     protected String description;
 
     @JoinTable(name = "APPOINTMENTS_APPOINTMENT_FILE_DESCRIPTOR_LINK",
-        joinColumns = @JoinColumn(name = "APPOINTMENT_ID"),
-        inverseJoinColumns = @JoinColumn(name = "FILE_DESCRIPTOR_ID"))
+            joinColumns = @JoinColumn(name = "APPOINTMENT_ID"),
+            inverseJoinColumns = @JoinColumn(name = "FILE_DESCRIPTOR_ID"))
     @ManyToMany
     protected Set<FileDescriptor> attachements;
 

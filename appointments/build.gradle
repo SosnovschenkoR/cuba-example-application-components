@@ -1,6 +1,5 @@
-
 buildscript {
-    ext.cubaVersion = '6.10.7'
+    ext.cubaVersion = '6.10.20'
     repositories {
         maven {
             url 'https://repo.cuba-platform.com/content/groups/work'
@@ -9,12 +8,9 @@ buildscript {
                 password(rootProject.hasProperty('repoPass') ? rootProject['repoPass'] : 'cuba123')
             }
         }
-        
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
-
-        
     }
 }
 
@@ -25,27 +21,25 @@ def webModule = project(':company-web')
 
 def servletApi = 'javax.servlet:javax.servlet-api:3.1.0'
 
-
 apply(plugin: 'idea')
 apply(plugin: 'cuba')
 
 cuba {
     artifact {
         group = 'com.company.platform.appointments'
-        version = "0.2"
+        version = "0.3"
         isSnapshot = true
     }
     tomcat {
-        dir = "$project.rootDir/build/tomcat"
-    }
+        dir = "$project.rootDir/build/tomcat" 
+        }
 }
 
 dependencies {
     appComponent("com.haulmont.cuba:cuba-global:$cubaVersion")
 }
 
-
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def hsql = 'org.hsqldb:hsqldb:2.6.0'
 
 configure([globalModule, coreModule, guiModule, webModule]) {
     apply(plugin: 'java')
@@ -78,12 +72,9 @@ configure(globalModule) {
             attributes('App-Component-Version': cuba.artifact.version + (cuba.artifact.isSnapshot ? '-SNAPSHOT' : ''))
         }
     }
-    
-    
 }
 
 configure(coreModule) {
-
     configurations {
         jdbc
         dbscripts
@@ -94,7 +85,6 @@ configure(coreModule) {
         provided(servletApi)
         jdbc(hsql)
         testRuntime(hsql)
-
     }
 
     task cleanConf(description: 'Cleans up conf directory') {
@@ -133,7 +123,6 @@ configure(coreModule) {
 configure(guiModule) {
     dependencies {
         compile(globalModule)
-
     }
 
     task deployConf(type: Copy) {
@@ -192,8 +181,6 @@ configure(webModule) {
 }
 
 
-
-
 task undeploy(type: Delete, dependsOn: ':company-web:cleanConf') {
     delete("$cuba.tomcat.dir/shared")
     delete("$cuba.tomcat.dir/webapps/company-core")
@@ -213,7 +200,7 @@ task restart(dependsOn: ['stop', ':company-core:deploy', ':company-web:deploy'],
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3.1'
+    gradleVersion = '4.10.2'
 }
 
 apply from: 'extra.gradle'

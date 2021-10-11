@@ -1,6 +1,6 @@
 
 buildscript {
-    ext.cubaVersion = '6.10.7'
+    ext.cubaVersion = '6.10.20'
     repositories {
         mavenLocal()
         maven {
@@ -14,8 +14,6 @@ buildscript {
     }
     dependencies {
         classpath "com.haulmont.gradle:cuba-plugin:$cubaVersion"
-
-        
     }
 }
 
@@ -33,7 +31,7 @@ apply(plugin: 'cuba')
 cuba {
     artifact {
         group = 'com.company.platform.projectmanagement'
-        version = "0.2"
+        version = "0.3"
         isSnapshot = true
     }
     tomcat {
@@ -48,7 +46,7 @@ dependencies {
 }
 
 
-def hsql = 'org.hsqldb:hsqldb:2.4.1'
+def hsql = 'org.hsqldb:hsqldb:2.6.0'
 
 configure([globalModule, coreModule, guiModule, webModule]) {
     apply(plugin: 'java')
@@ -74,12 +72,9 @@ configure(globalModule) {
     entitiesEnhancing {
         main { enabled = true }
     }
-    
-    
 }
 
 configure(coreModule) {
-
     configurations {
         jdbc
         dbscripts
@@ -129,7 +124,6 @@ configure(coreModule) {
 configure(guiModule) {
     dependencies {
         compile(globalModule)
-
     }
 
     task deployConf(type: Copy) {
@@ -187,9 +181,6 @@ configure(webModule) {
     }
 }
 
-
-
-
 task undeploy(type: Delete, dependsOn: ':app-web:cleanConf') {
     delete("$cuba.tomcat.dir/shared")
     delete("$cuba.tomcat.dir/webapps/app-core")
@@ -209,7 +200,7 @@ task restart(dependsOn: ['stop', ':app-core:deploy', ':app-web:deploy'],
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '4.3.1'
+    gradleVersion = '4.10.2'
 }
 
 apply from: 'extra.gradle'

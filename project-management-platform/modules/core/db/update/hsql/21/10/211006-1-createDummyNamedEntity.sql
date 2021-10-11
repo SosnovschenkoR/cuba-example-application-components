@@ -1,4 +1,3 @@
--- begin PMP_DUMMY_NAMED_ENTITY
 create table PMP_DUMMY_NAMED_ENTITY (
     ID varchar(36) not null,
     VERSION integer not null,
@@ -12,5 +11,4 @@ create table PMP_DUMMY_NAMED_ENTITY (
     DESCRIPTION varchar(255),
     --
     primary key (ID)
-)^
--- end PMP_DUMMY_NAMED_ENTITY
+);
